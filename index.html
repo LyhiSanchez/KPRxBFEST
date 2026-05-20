@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" style="color-scheme: light;">
 
 <head>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-54PCFZLWD0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-54PCFZLWD0');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KPR x BFEST - Picnic Core</title>
+    <title>KPR x BFEST 2026 - Coffee Picnic</title>
 
-    <!-- Google Fonts: Outfit -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Fredoka (Bubbly/Inflatable for Menu & Headings) & Kalam (Handdrawn/Casual notes) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,44 +30,21 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif']
+                        bubble: ['Fredoka', 'sans-serif'], // Main playful font
+                        hand: ['Kalam', 'cursive'] // Accent handwritten font
                     },
                     colors: {
-                        brand: {
-                            bg: '#FFF8F0', // Warna Background Utama (Krem Terang)
-                            text: '#4A2C1B', // Warna Teks Utama (Coklat Kopi Tua)
-                            accent: '#D97A35', // Warna Aksen (Karamel)
-                            surface: '#FFEBCD', // Warna Background Kartu (Beige)
-                            gingham: '#E8D3BB' // Warna pola kotak-kotak
-                        },
                         picnic: {
-                            red: '#D9534F',
-                            green: '#8FB996',
-                            brown: '#8B5A2B',
-                            cream: '#FFFDD0'
-                        }
-                    },
-                    animation: {
-                        'spin-slow': 'spin 15s linear infinite',
-                        'bounce-slight': 'bounceSlight 2s ease-in-out infinite alternate',
-                        'wiggle': 'wiggle 3s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        bounceSlight: {
-                            '0%': {
-                                transform: 'translateY(0)'
-                            },
-                            '100%': {
-                                transform: 'translateY(-10px)'
-                            }
+                            choco: '#5C3D2E', // Dark brown
+                            caramel: '#D99621', // Golden brown / caramel
+                            latte: '#D4B595', // Soft brown
+                            matcha: '#8B9A46', // Earthy green
+                            cream: '#FFFBF0', // Off-white cream
+                            ink: '#2C1E16' // Very dark brown for text
                         },
-                        wiggle: {
-                            '0%, 100%': {
-                                transform: 'rotate(-3deg)'
-                            },
-                            '50%': {
-                                transform: 'rotate(3deg)'
-                            },
+                        bfest: {
+                            pink: '#FF6B9E',
+                            ink: '#1A1A1A'
                         }
                     }
                 }
@@ -66,25 +57,21 @@
 
     <style>
         body {
-            background-color: #FFF8F0;
-            color: #4A2C1B;
+            background-color: #FFFBF0;
+            color: #2C1E16;
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
+            font-family: 'Fredoka', sans-serif;
         }
         
          ::selection {
-            background-color: #D97A35;
-            color: #FFF8F0;
+            background-color: #D99621;
+            color: #FFFBF0;
         }
         
          ::-webkit-scrollbar {
-            width: 8px;
-            background: #FFF8F0;
-        }
-        
-         ::-webkit-scrollbar-thumb {
-            background: #4A2C1B;
-            border-radius: 10px;
+            width: 0px;
+            background: transparent;
         }
         
         .scrollbar-hide::-webkit-scrollbar {
@@ -96,157 +83,149 @@
             scrollbar-width: none;
         }
         /* ========================================== */
-        /* PLAYFUL & GINGHAM UTILITIES                */
+        /* 1. GINGHAM & COFFEE PICNIC CORE UTILITIES  */
         /* ========================================== */
-        /* Pola Kotak-kotak (Gingham) Piknik */
+        /* Gingham Patterns - Coffee Tones */
         
-        .bg-gingham {
-            background-color: #FFF8F0;
-            background-image: linear-gradient(90deg, rgba(217, 122, 53, 0.15) 50%, transparent 50%), linear-gradient(rgba(217, 122, 53, 0.15) 50%, transparent 50%);
+        .gingham-choco {
+            background-color: #FFFBF0;
+            background-image: linear-gradient(90deg, rgba(92, 61, 46, 0.1) 50%, transparent 50%), linear-gradient(rgba(92, 61, 46, 0.1) 50%, transparent 50%);
             background-size: 40px 40px;
         }
         
-        .bg-gingham-brown {
-            background-color: #FFEBCD;
-            background-image: linear-gradient(90deg, rgba(74, 44, 27, 0.1) 50%, transparent 50%), linear-gradient(rgba(74, 44, 27, 0.1) 50%, transparent 50%);
-            background-size: 60px 60px;
-        }
-        /* Pola Titik-titik Lucu */
-        
-        .bg-dots {
-            background-color: #FFF8F0;
-            background-image: radial-gradient(rgba(74, 44, 27, 0.1) 2px, transparent 2px);
-            background-size: 24px 24px;
-        }
-        /* Kartu bergaya stiker/brutalism lucu */
-        
-        .playful-card {
-            background: #FFF8F0;
-            border: 3px solid #4A2C1B;
-            box-shadow: 6px 6px 0px #4A2C1B;
-            border-radius: 24px;
-            transition: all 0.3s ease;
+        .gingham-caramel {
+            background-color: #FFFBF0;
+            background-image: linear-gradient(90deg, rgba(217, 150, 33, 0.15) 50%, transparent 50%), linear-gradient(rgba(217, 150, 33, 0.15) 50%, transparent 50%);
+            background-size: 40px 40px;
         }
         
-        .playful-card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 10px 10px 0px #4A2C1B;
+        .gingham-latte {
+            background-color: #FFFBF0;
+            background-image: linear-gradient(90deg, rgba(212, 181, 149, 0.25) 50%, transparent 50%), linear-gradient(rgba(212, 181, 149, 0.25) 50%, transparent 50%);
+            background-size: 40px 40px;
+        }
+        /* Stitched Borders for Picnic Napkins/Cards */
+        
+        .stitched-white {
+            outline: 2px dashed rgba(255, 255, 255, 0.9);
+            outline-offset: -8px;
         }
         
-        .playful-button {
-            background: #D97A35;
-            color: #FFF8F0;
-            border: 3px solid #4A2C1B;
-            box-shadow: 4px 4px 0px #4A2C1B;
-            border-radius: 999px;
-            font-weight: 800;
-            transition: all 0.2s ease;
+        .stitched-dark {
+            outline: 2px dashed rgba(44, 30, 22, 0.3);
+            outline-offset: -8px;
         }
         
-        .playful-button:active {
-            transform: translate(4px, 4px);
-            box-shadow: 0px 0px 0px #4A2C1B;
+        .polaroid {
+            background: #ffffff;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0dcd3;
+            border-radius: 4px;
         }
-        /* Text dengan outline tebal (Sticker effect) */
+        /* Tape for Polaroids */
         
-        .text-sticker {
-            color: #D97A35;
-            text-shadow: -2px -2px 0 #4A2C1B, 2px -2px 0 #4A2C1B, -2px 2px 0 #4A2C1B, 2px 2px 0 #4A2C1B, 4px 4px 0 #4A2C1B;
-        }
-        /* Hiasan tambahan untuk section Filosofi */
-        
-        .picnic-section-card {
-            background: #FFF8F0;
-            border: 4px solid #4A2C1B;
-            box-shadow: 10px 10px 0px #4A2C1B;
-            border-radius: 34px;
-        }
-        
-        .picnic-inner-mat {
-            background-color: #FFEBCD;
-            background-image: linear-gradient(90deg, rgba(217, 122, 53, 0.14) 50%, transparent 50%), linear-gradient(rgba(217, 122, 53, 0.14) 50%, transparent 50%);
-            background-size: 34px 34px;
-            border: 3px dashed rgba(74, 44, 27, 0.75);
-            border-radius: 28px;
-        }
-        
-        .coffee-bean {
-            width: 22px;
-            height: 34px;
-            border-radius: 999px;
-            background: #4A2C1B;
+        .tape {
             position: absolute;
-            opacity: 0.18;
-            transform: rotate(28deg);
-        }
-        
-        .coffee-bean::after {
-            content: '';
-            position: absolute;
-            top: 4px;
-            bottom: 4px;
+            top: -10px;
             left: 50%;
-            width: 2px;
-            background: #FFF8F0;
-            border-radius: 999px;
-            transform: translateX(-50%) rotate(-10deg);
-        }
-        
-        .tape-sticker {
-            background: rgba(255, 253, 208, 0.85);
-            border: 2px solid rgba(74, 44, 27, 0.28);
-            box-shadow: 3px 3px 0 rgba(74, 44, 27, 0.18);
-        }
-        
-        .scallop-row {
-            background-image: radial-gradient(circle at 14px 14px, #FFF8F0 14px, transparent 15px);
-            background-size: 28px 28px;
-            background-repeat: repeat-x;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 80px;
+            height: 25px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
         }
         /* ========================================== */
-        /* TAB AKTIF DENGAN WARNA BERBEDA             */
+        /* 2. INFLATABLE BALLOON BOXES (ONLY FOR MENU)*/
         /* ========================================== */
         
-        .tab-active-coffee {
-            background-color: #4A2C1B !important;
-            color: #FFF8F0 !important;
-            border: 2px solid #4A2C1B;
-            box-shadow: 3px 3px 0px #D97A35;
+        .inflatable {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color, #D4B595), var(--bg-light, #EBD9C8));
+            border: 4px solid #2C1E16;
+            border-radius: 40px;
+            box-shadow: inset -8px -8px 20px rgba(0, 0, 0, 0.15), inset 8px 8px 20px rgba(255, 255, 255, 0.9), 8px 8px 0px #2C1E16;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
         }
         
-        .tab-active-non-coffee {
-            background-color: #8FB996 !important;
-            color: #4A2C1B !important;
-            border: 2px solid #4A2C1B;
-            box-shadow: 3px 3px 0px #4A2C1B;
+        .inflatable:hover {
+            transform: translate(-4px, -4px) scale(1.02);
+            box-shadow: inset -10px -10px 25px rgba(0, 0, 0, 0.15), inset 10px 10px 25px rgba(255, 255, 255, 0.9), 12px 12px 0px #2C1E16;
         }
         
-        .tab-active-snacks {
-            background-color: #D97A35 !important;
-            color: #FFF8F0 !important;
-            border: 2px solid #4A2C1B;
-            box-shadow: 3px 3px 0px #4A2C1B;
+        .inflatable:active {
+            transform: translate(2px, 2px) scale(0.98);
+            box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.2), inset 4px 4px 10px rgba(255, 255, 255, 0.7), 4px 4px 0px #2C1E16;
+        }
+        /* Coffee themed balloon colors */
+        
+        .inflatable-choco {
+            --bg-color: #5C3D2E;
+            --bg-light: #8A5A44;
         }
         
-        .menu-tab {
-            border: 2px solid transparent;
+        .inflatable-caramel {
+            --bg-color: #D99621;
+            --bg-light: #F4C463;
+        }
+        
+        .inflatable-latte {
+            --bg-color: #D4B595;
+            --bg-light: #EBD9C8;
+        }
+        
+        .inflatable-cream {
+            --bg-color: #FFFBF0;
+            --bg-light: #FFFFFF;
+        }
+        
+        .inflatable-matcha {
+            --bg-color: #8B9A46;
+            --bg-light: #B4C468;
+        }
+        
+        .puffy-text {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .puffy-cream {
+            color: #FFFBF0;
+            text-shadow: -2px -2px 6px rgba(255, 255, 255, 1), 3px 3px 6px rgba(0, 0, 0, 0.2), 0px 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .puffy-caramel {
+            color: #D99621;
+            text-shadow: -2px -2px 6px rgba(244, 196, 99, 0.9), 3px 3px 6px rgba(92, 61, 46, 0.4), 0px 10px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .puffy-choco {
+            color: #5C3D2E;
+            text-shadow: -2px -2px 6px rgba(138, 90, 68, 0.8), 3px 3px 6px rgba(0, 0, 0, 0.5), 0px 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .text-stroke {
+            -webkit-text-stroke: 2px #2C1E16;
+            color: white;
         }
         /* Modal Transitions */
         
         .modal-enter {
             opacity: 0;
-            transform: translateY(20px) scale(0.95);
+            transform: translateY(40px) scale(0.9) rotate(-2deg);
         }
         
         .modal-enter-active {
             opacity: 1;
-            transform: translateY(0) scale(1);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: translateY(0) scale(1) rotate(0deg);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
         .modal-exit {
             opacity: 0;
-            transform: translateY(10px) scale(0.95);
+            transform: translateY(20px) scale(0.95);
             transition: all 0.3s ease-in;
             pointer-events: none;
         }
@@ -262,329 +241,234 @@
     </style>
 </head>
 
-<body class="antialiased text-brand-text text-base sm:text-lg bg-brand-bg">
+<body class="antialiased relative">
 
-    <!-- PRELOADER -->
-    <div id="preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-brand-bg transition-transform duration-1000 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-0">
-        <div class="overflow-hidden mb-6">
-            <h1 class="text-5xl md:text-8xl font-black tracking-tighter text-sticker animate-bounce-slight">KPR.</h1>
+    <!-- PRELOADER (Picnic) -->
+    <div id="preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center gingham-choco transition-transform duration-1000 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-0">
+        <div class="bg-white p-10 rounded-full border-4 border-picnic-choco shadow-lg stitched-dark flex flex-col items-center">
+            <svg class="w-20 h-20 text-picnic-choco animate-bounce mb-4" viewBox="0 0 24 24" fill="currentColor"><path d="M4 19h16v2H4zM20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm-4 10c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2V5h10v8zm4-5h-2V5h2v3z"/></svg>
+            <h1 class="text-6xl md:text-8xl font-black tracking-wide text-picnic-choco">KPR.</h1>
         </div>
-        <div class="flex w-64 flex-col items-center gap-4">
-            <div class="h-4 w-full overflow-hidden bg-[#FFEBCD] border-2 border-[#4A2C1B] rounded-full p-[2px]">
-                <div id="progress-bar" class="h-full bg-[#D97A35] rounded-full transition-all duration-300 ease-out border-r-2 border-[#4A2C1B]" style="width: 0%"></div>
+        <div class="mt-8 flex w-64 flex-col items-center gap-4 relative z-10 bg-white p-4 rounded-2xl shadow-sm border border-picnic-latte">
+            <!-- Stitched progress bar -->
+            <div class="h-4 w-full overflow-hidden bg-picnic-cream border border-picnic-latte rounded-full p-0.5">
+                <div id="progress-bar" class="h-full bg-picnic-choco rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
             </div>
-            <span id="progress-text" class="text-sm font-bold text-[#4A2C1B]">Menyiapkan Keranjang Piknik...</span>
+            <span id="progress-text" class="text-lg font-hand font-bold text-picnic-ink/80">Menyeduh Kopi...</span>
         </div>
     </div>
 
-    <!-- NAVBAR (Liquid Glass Style) -->
-    <nav class="fixed top-6 left-6 md:left-10 z-50 flex items-center px-6 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/40 shadow-[0_8px_32px_0_rgba(74,44,27,0.15)] transition-transform hover:-translate-y-1">
-        <div class="text-xl md:text-2xl font-black tracking-tighter uppercase cursor-pointer text-[#4A2C1B]">KPR x BFEST</div>
+    <!-- NAVBAR (Stitched Label) -->
+    <nav class="fixed top-4 left-4 md:top-8 md:left-8 z-50 flex items-center px-8 py-3 bg-white text-picnic-choco border-2 border-picnic-choco rounded-xl shadow-md cursor-pointer rotate-[-2deg] hover:rotate-0 transition-transform" style="outline: 2px dashed #5C3D2E; outline-offset: -6px;">
+        <div class="text-2xl font-bold tracking-wide">KPR <span class="text-picnic-caramel">x</span> BFEST</div>
     </nav>
 
-    <!-- HERO SCROLLYTELLING (Tanpa Background Pattern agar Sequence Jelas) -->
-    <div id="hero-container" class="relative z-10 w-full h-[150vh]">
-        <div class="sticky top-0 w-full h-screen overflow-hidden bg-brand-bg">
-            <!-- Opacity dijaga penuh agar sequence jelas -->
-            <div id="canvas-wrapper" class="absolute inset-0 w-full h-full transition-opacity duration-500 opacity-100">
-                <canvas id="hero-canvas" class="absolute inset-0 w-full h-full"></canvas>
+    <!-- CTA Navbar Right -->
+    <nav class="fixed top-4 right-4 md:top-8 md:right-8 z-50 hidden md:flex">
+        <button id="btn-kontak-nav" class="bg-picnic-caramel text-white border-2 border-picnic-choco px-8 py-3 rounded-xl font-bold text-lg flex items-center gap-2 shadow-md hover:scale-105 transition-transform rotate-[2deg] hover:rotate-0" style="outline: 2px dashed #2C1E16; outline-offset: -6px;">
+            Visit Us!
+        </button>
+    </nav>
+
+    <!-- HERO SCROLLYTELLING (IMAGE SEQUENCE) -->
+    <div id="hero-container" class="relative z-10 w-full h-[250vh]">
+        <!-- Tetap gunakan hitam gelap untuk blend image sequence agar foto jelas -->
+        <div class="sticky top-0 w-full h-screen overflow-hidden bg-[#1A1A1A]">
+            <!-- Canvas Wrapper for Sequence -->
+            <div id="canvas-wrapper" class="absolute inset-0 w-full h-full transition-opacity duration-500">
+                <canvas id="hero-canvas" class="absolute inset-0 w-full h-full opacity-75 object-cover mix-blend-screen"></canvas>
             </div>
 
-            <!-- Soft vignette gradient sangat tipis saja di ujung-ujung -->
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#FFF8F0_100%)] pointer-events-none opacity-40"></div>
+            <!-- Soft vignette -->
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(26,26,26,0.9)_100%)] pointer-events-none"></div>
 
+            <div id="fallback-badge" class="hidden absolute bottom-20 left-4 text-xs font-hand font-bold text-picnic-ink bg-picnic-caramel px-4 py-2 rounded-xl z-[40]">
+                Mode Fallback
+            </div>
+
+            <!-- Scroll Overlays (Coffee Picnic Style) - Hanya Awal dan Akhir -->
             <div class="absolute inset-0 z-10 pointer-events-none flex flex-col justify-center items-center px-6">
-                <!-- Overlay 1 -->
-                <div id="overlay-1" class="absolute flex flex-col items-center text-center transition-opacity duration-100 mt-[-10vh]">
-                    <div class="inline-block bg-[#FFEBCD] border-3 border-[#4A2C1B] rounded-2xl px-6 py-2 mb-6 transform -rotate-3 shadow-[4px_4px_0px_#4A2C1B]">
-                        <p class="text-sm md:text-lg font-bold tracking-[0.2em] uppercase text-[#D97A35]">Special Collaboration</p>
+                <!-- Overlay 1 (Awal) -->
+                <div id="overlay-1" class="absolute flex flex-col items-center text-center transition-opacity duration-100">
+                    <div class="bg-white p-8 md:p-12 rounded-3xl border-4 border-picnic-choco shadow-2xl stitched-dark rotate-[-2deg]" style="outline: 3px dashed #5C3D2E; outline-offset: -10px;">
+                        <h1 class="text-5xl md:text-[6vw] font-black text-picnic-choco leading-tight mb-2">KPR <span class="text-picnic-caramel">x</span> BFEST</h1>
+                        <p class="text-xl md:text-2xl font-hand font-bold text-picnic-ink mt-2">Menyeduh Kopi di Pulau Inovasi 🧺</p>
                     </div>
-                    <h1 class="text-7xl md:text-[12vw] font-black tracking-tighter leading-none mb-4 text-sticker transform rotate-2">KPR x BFEST</h1>
+                </div>
+
+                <!-- Overlay 2 (Akhir) -->
+                <div id="overlay-2" class="absolute flex flex-col items-center transition-opacity duration-100 opacity-0">
+                    <div class="bg-picnic-caramel text-white p-8 rounded-full shadow-2xl rotate-[3deg] border-4 border-picnic-choco" style="outline: 3px dashed #2C1E16; outline-offset: -12px;">
+                        <h2 class="text-6xl md:text-8xl font-black px-8 py-2 text-stroke">Let's Go!</h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- MAIN CONTENT -->
-    <div class="relative z-20 w-full -mt-[60vh]">
-        <div class="h-[30vh] w-full pointer-events-none"></div>
+    <div class="relative z-20 w-full -mt-[50vh] bg-picnic-cream rounded-t-[40px] md:rounded-t-[80px] shadow-[0_-20px_50px_rgba(0,0,0,0.2)]">
 
-        <!-- 1. FILOSOFI (Picnic Scrapbook Card) -->
-        <section id="filosofi-section" class="w-full px-4 md:px-10 pb-24 mt-20 relative overflow-hidden">
-            <!-- floating decoration outside card -->
-            <div class="absolute left-6 md:left-16 top-10 text-4xl md:text-6xl opacity-70 animate-bounce-slight pointer-events-none">☕</div>
-            <div class="absolute right-6 md:right-20 bottom-12 text-4xl md:text-6xl opacity-60 animate-wiggle pointer-events-none">🍪</div>
-            <div class="absolute left-[12%] bottom-20 text-2xl md:text-4xl opacity-40 animate-spin-slow pointer-events-none">✦</div>
-            <div class="absolute right-[14%] top-24 text-2xl md:text-4xl opacity-40 animate-spin-slow pointer-events-none" style="animation-delay: -5s;">✿</div>
+        <!-- Decoration Scallop Top -->
+        <div class="absolute -top-4 left-0 w-full h-8" style="background-image: radial-gradient(circle at 20px 0px, transparent 20px, #FFFBF0 21px); background-size: 40px 100%;"></div>
 
-            <div class="picnic-section-card max-w-6xl mx-auto relative overflow-hidden text-center">
-                <!-- scallop border -->
-                <div class="scallop-row absolute top-0 left-0 w-full h-7 rotate-180 opacity-95"></div>
-                <div class="scallop-row absolute bottom-0 left-0 w-full h-7 opacity-95"></div>
+        <div class="h-[10vh] w-full pointer-events-none"></div>
 
-                <!-- tapes -->
-                <div class="tape-sticker absolute -top-3 left-10 md:left-20 w-24 h-10 rotate-[-8deg] z-20"></div>
-                <div class="tape-sticker absolute -top-3 right-10 md:right-20 w-24 h-10 rotate-[8deg] z-20"></div>
+        <!-- 1. APA ITU BFEST (Coffee Gingham Card) -->
+        <section id="bfest-section" class="w-full px-4 md:px-10 pb-20 relative">
+            <div class="gingham-latte p-6 md:p-10 max-w-4xl mx-auto relative z-10 border-2 border-picnic-latte rounded-3xl shadow-lg rotate-[1deg]">
+                <!-- Kertas Putih Solid agar teks sangat mudah dibaca -->
+                <div class="bg-white p-8 md:p-12 rounded-2xl stitched-dark text-center shadow-md">
+                    <h2 class="text-4xl md:text-6xl font-black text-picnic-choco mb-8">Apa Itu BFest 2026?</h2>
 
-                <!-- coffee beans pattern -->
-                <span class="coffee-bean top-20 left-8 md:left-16"></span>
-                <span class="coffee-bean top-40 right-10 md:right-24" style="transform: rotate(-34deg);"></span>
-                <span class="coffee-bean bottom-28 left-12 md:left-32" style="transform: rotate(58deg);"></span>
-                <span class="coffee-bean bottom-20 right-16 md:right-40" style="transform: rotate(18deg);"></span>
-
-                <div class="picnic-inner-mat m-4 md:m-7 py-20 px-4 md:px-16 relative overflow-hidden">
-                    <!-- soft sticker blobs -->
-                    <div class="absolute -top-12 -left-12 w-40 h-40 bg-[#D97A35] rounded-full border-4 border-[#4A2C1B] opacity-20 pointer-events-none animate-wiggle"></div>
-                    <div class="absolute -bottom-16 -right-14 w-48 h-48 bg-[#8FB996] rounded-full border-4 border-[#4A2C1B] opacity-25 pointer-events-none animate-wiggle" style="animation-delay: -1.5s;"></div>
-                    <div class="absolute top-10 right-8 md:right-14 bg-[#D9534F] text-white text-[10px] md:text-xs font-black px-3 py-1.5 rounded-full border-2 border-[#4A2C1B] shadow-[2px_2px_0px_#4A2C1B] rotate-12">BREWED WITH LOVE</div>
-
-                    <div class="flex flex-col justify-center min-h-[40vh] relative z-10">
-                        <div class="inline-flex items-center justify-center gap-3 mb-10 mx-auto bg-[#FFF8F0] px-5 py-3 rounded-full border-2 border-[#4A2C1B] shadow-[4px_4px_0px_#4A2C1B] -rotate-2">
-                            <span class="w-3 h-3 rounded-full bg-[#D97A35] border-2 border-[#4A2C1B]"></span>
-                            <p class="text-sm md:text-base font-black text-[#4A2C1B] uppercase tracking-widest">Filosofi Kami</p>
-                            <span class="w-3 h-3 rounded-full bg-[#8FB996] border-2 border-[#4A2C1B]"></span>
-                        </div>
-
-                        <!-- Cangkang Scrapbook untuk Teks -->
-                        <div class="max-w-5xl mx-auto bg-[#FFF8F0]/90 border-[3px] border-[#4A2C1B] rounded-[2rem] px-4 py-12 md:px-10 md:py-16 shadow-[8px_8px_0px_#4A2C1B] relative">
-                            <div id="reveal-text-container" class="block text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-black tracking-tighter leading-[1.6] md:leading-[1.7] text-[#4A2C1B]">
-                                <!-- JS Inject -->
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-2xl md:text-3xl font-hand font-bold text-picnic-ink leading-relaxed mb-6">
+                        BFest 2026 adalah festival bisnis dan kreativitas tahunan yang menghadirkan ekosistem lengkap untuk <span class="bg-picnic-caramel/30 px-2 rounded-lg">UMKM</span>, profesional, dan masyarakat umum.
+                    </p>
+                    <p class="text-lg md:text-xl font-hand font-bold text-picnic-ink/80">
+                        Kami menggabungkan edukasi, hiburan, dan peluang bisnis dalam satu pengalaman tak terlupakan. Dan tentunya, <strong class="text-picnic-caramel text-xl md:text-2xl">KPR hadir di sana!</strong>
+                    </p>
                 </div>
             </div>
         </section>
 
-        <div class="w-full bg-dots relative">
-            <!-- Decorative squiggly divider at the top of menu -->
-            <div class="absolute top-0 left-0 w-full h-8 overflow-hidden transform -translate-y-full">
-                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-8 fill-[#FFF8F0]"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C50.29,32.22,109.11,53.8,168,64.24,220.55,73.49,273.65,74.55,321.39,56.44Z"></path></svg>
+        <!-- 2. KATALOG MENU (INFLATABLE BALLOON STYLE!) -->
+        <section id="katalog-menu" class="py-20 md:py-32 relative z-30 bg-picnic-latte border-y-[12px] border-white shadow-[0_0_40px_rgba(0,0,0,0.1)] font-bubble">
+            <!-- Subtle coffee bean doodle pattern -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#5C3D2E 2px, transparent 2px); background-size: 30px 30px;"></div>
+
+            <div class="max-w-5xl mx-auto px-4 md:px-6 relative z-10">
+                <!-- HEADER KATALOG -->
+                <div class="flex flex-col items-center text-center mb-16 gap-8 w-full">
+                    <div class="rotate-[-2deg] bg-white px-8 py-2 rounded-full mb-2 shadow-md border-2 border-picnic-choco">
+                        <p class="font-hand font-bold text-xl text-picnic-choco">Pilihan Menu Kami</p>
+                    </div>
+                    <h2 class="text-6xl md:text-8xl puffy-text puffy-cream drop-shadow-md">Menu KPR<span class="text-picnic-choco">.</span></h2>
+
+                    <!-- Tabs Kategori Menu (Inflatable Pills) -->
+                    <div class="flex overflow-x-auto justify-center gap-4 max-w-full scrollbar-hide py-4 px-2">
+                        <button class="menu-tab text-white font-bold whitespace-nowrap px-8 py-3 rounded-full text-lg transition-all duration-300 w-full md:w-auto inflatable inflatable-choco" data-target="coffee">Coffee</button>
+                        <button class="menu-tab text-picnic-ink font-bold whitespace-nowrap px-8 py-3 rounded-full text-lg transition-all duration-300 w-full md:w-auto inflatable inflatable-cream opacity-80 hover:opacity-100" data-target="non-coffee">Non-Coffee</button>
+                        <button class="menu-tab text-picnic-ink font-bold whitespace-nowrap px-8 py-3 rounded-full text-lg transition-all duration-300 w-full md:w-auto inflatable inflatable-cream opacity-80 hover:opacity-100" data-target="snacks">Snacks</button>
+                    </div>
+                </div>
+
+                <!-- Konten Menu Grid Card (2 Kolom - INFLATABLE) -->
+                <div id="menu-container" class="min-h-[400px]"></div>
+            </div>
+        </section>
+
+        <!-- 3. TESTIMONIAL (Polaroid Coffee Picnic Style) -->
+        <section class="w-full py-32 overflow-hidden relative gingham-caramel">
+            <div class="text-center mb-20 px-6 flex flex-col items-center relative z-10">
+                <div class="bg-white border-2 border-picnic-caramel px-8 py-3 rounded-2xl rotate-[-2deg] mb-6 shadow-sm stitched-dark">
+                    <h2 class="text-4xl md:text-6xl font-black text-picnic-caramel">Kata Mereka</h2>
+                </div>
+                <p class="font-hand font-bold text-2xl md:text-3xl text-picnic-ink bg-white/70 px-4 py-1 rounded-xl">Cerita keseruan di sudut KPR</p>
             </div>
 
-            <!-- 2. KATALOG MENU (2 Kolom Mobile First) -->
-            <section id="katalog-menu" class="py-20 md:py-32 relative z-30">
-                <div class="max-w-6xl mx-auto px-4 md:px-6">
-                    <div class="flex flex-col items-center text-center mb-16 gap-10 w-full">
-                        <div>
-                            <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-4 text-[#4A2C1B]">Pilihan Menu<span class="text-[#D97A35]">.</span></h2>
-                            <p class="text-base font-bold text-[#4A2C1B]/60 bg-[#FFEBCD] px-4 py-1 rounded-full border-2 border-[#4A2C1B] inline-block shadow-[2px_2px_0px_#4A2C1B] transform rotate-2">Buat Harimu Lebih Manis</p>
-                        </div>
-                        <!-- Tabs Kategori Menu (Playful Buttons) -->
-                        <div class="flex flex-wrap justify-center gap-4 w-full">
-                            <button class="menu-tab tab-active-coffee px-8 py-3 rounded-full text-base font-bold transition-all w-auto" data-target="coffee">Coffee</button>
-                            <button class="menu-tab bg-white text-[#4A2C1B] border-2 border-[#4A2C1B] shadow-[3px_3px_0px_#4A2C1B] px-8 py-3 rounded-full text-base font-bold transition-all w-auto hover:bg-[#FFEBCD]" data-target="non-coffee">Non-Coffee</button>
-                            <button class="menu-tab bg-white text-[#4A2C1B] border-2 border-[#4A2C1B] shadow-[3px_3px_0px_#4A2C1B] px-8 py-3 rounded-full text-base font-bold transition-all w-auto hover:bg-[#FFEBCD]" data-target="snacks">Snacks</button>
-                        </div>
-                    </div>
+            <!-- Chat Bubble Slider -->
+            <div class="w-full max-w-4xl mx-auto px-6 overflow-hidden relative z-10">
+                <div id="chat-slider" class="flex transition-transform duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)] items-center">
 
-                    <!-- Konten Menu Grid Card (Dibuat Grid-Cols-2 secara paksa) -->
-                    <div id="menu-container" class="min-h-[400px]"></div>
-                </div>
-            </section>
-
-            <!-- 3. CARA ORDER (ENHANCED SECTION) -->
-            <section class="py-24 bg-[#FFEBCD] border-y-4 border-[#4A2C1B] relative overflow-hidden">
-                <!-- Gingham overlay subtle -->
-                <div class="absolute inset-0 bg-gingham-brown opacity-50 mix-blend-multiply pointer-events-none"></div>
-
-                <!-- Cute floating elements -->
-                <div class="absolute top-10 left-10 text-5xl transform -rotate-12 animate-bounce-slight opacity-70">🛵</div>
-                <div class="absolute bottom-16 right-10 text-5xl transform rotate-12 animate-bounce-slight opacity-70" style="animation-delay: 1s;">📦</div>
-                <div class="absolute top-1/2 left-[5%] text-3xl opacity-40 animate-spin-slow">✨</div>
-
-                <div class="max-w-6xl mx-auto px-6 relative z-10">
-                    <div class="text-center mb-16 relative">
-                        <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-[#4A2C1B] mb-4 relative inline-block">
-                            Cara Pemesanan Mudah
-                            <!-- Sticker lucu -->
-                            <div class="absolute -top-6 -right-10 bg-[#D9534F] text-white text-xs font-black px-3 py-1 rounded-full border-2 border-[#4A2C1B] transform rotate-12 shadow-[2px_2px_0px_#4A2C1B] animate-pulse">Anti Ribet!</div>
-                        </h2>
-                        <div class="w-24 h-2 bg-[#D97A35] mx-auto rounded-full border-2 border-[#4A2C1B]"></div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative">
-                        <!-- Garis penghubung (Desktop) -->
-                        <div class="hidden md:block absolute top-16 left-[20%] w-[25%] h-12 border-t-4 border-[#4A2C1B] border-dashed rounded-t-[100px] z-0"></div>
-                        <div class="hidden md:block absolute top-16 right-[20%] w-[25%] h-12 border-t-4 border-[#4A2C1B] border-dashed rounded-t-[100px] z-0"></div>
-
-                        <!-- Garis penghubung vertikal (Mobile) -->
-                        <div class="md:hidden absolute top-[28%] left-1/2 w-4 h-[12%] border-l-4 border-[#4A2C1B] border-dashed -translate-x-1/2 z-0"></div>
-                        <div class="md:hidden absolute top-[65%] left-1/2 w-4 h-[12%] border-l-4 border-[#4A2C1B] border-dashed -translate-x-1/2 z-0"></div>
-
-                        <!-- Step 1 -->
-                        <div class="playful-card bg-[#FFF8F0] p-8 text-center relative z-10 flex flex-col items-center hover:scale-105 transition-transform duration-300 group">
-                            <div class="w-16 h-16 rounded-full bg-[#D97A35] border-3 border-[#4A2C1B] flex items-center justify-center text-2xl font-black text-white shadow-[4px_4px_0px_#4A2C1B] mb-6 transform group-hover:-rotate-12 transition-transform">1</div>
-                            <h3 class="text-2xl font-black mb-3 text-[#4A2C1B]">Pilih Menu</h3>
-                            <p class="font-medium text-[#4A2C1B]/80 leading-relaxed text-sm md:text-base">Lihat daftar menu kami di atas dan tentukan pesanan favorit Anda.</p>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div class="playful-card bg-[#FFF8F0] p-8 text-center relative z-10 flex flex-col items-center hover:scale-105 transition-transform duration-300 group">
-                            <div class="w-16 h-16 rounded-full bg-[#8FB996] border-3 border-[#4A2C1B] flex items-center justify-center text-2xl font-black text-white shadow-[4px_4px_0px_#4A2C1B] mb-6 transform group-hover:rotate-12 transition-transform">2</div>
-                            <h3 class="text-2xl font-black mb-3 text-[#4A2C1B]">Hubungi Admin</h3>
-                            <p class="font-medium text-[#4A2C1B]/80 leading-relaxed text-sm md:text-base">Gunakan opsi WhatsApp, GoFood, atau ShopeeFood untuk terhubung dengan kami.</p>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="playful-card bg-[#FFF8F0] p-8 text-center relative z-10 flex flex-col items-center hover:scale-105 transition-transform duration-300 group">
-                            <div class="w-16 h-16 rounded-full bg-[#E5A885] border-3 border-[#4A2C1B] flex items-center justify-center text-2xl font-black text-white shadow-[4px_4px_0px_#4A2C1B] mb-6 transform group-hover:-rotate-12 transition-transform">3</div>
-                            <h3 class="text-2xl font-black mb-3 text-[#4A2C1B]">Tunggu & Nikmati</h3>
-                            <p class="font-medium text-[#4A2C1B]/80 leading-relaxed text-sm md:text-base">Admin kami akan mengonfirmasi detailnya, pesanan siap meluncur ke tempat Anda!</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 4. REVIEW / TESTIMONIAL (Picnic Cards) -->
-            <section class="w-full py-32 overflow-hidden relative bg-gingham">
-                <div class="text-center mb-16 px-6 flex flex-col items-center relative z-10">
-                    <div class="bg-white border-2 border-[#4A2C1B] px-6 py-2 rounded-full shadow-[4px_4px_0px_#4A2C1B] transform -rotate-2 mb-6">
-                        <p class="text-sm font-bold text-[#D97A35] uppercase tracking-widest">Kata Mereka</p>
-                    </div>
-                    <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-sticker bg-white/80 px-4 py-2 rounded-xl border-2 border-[#4A2C1B] shadow-[4px_4px_0px_#4A2C1B]">Cerita di Sudut KPR</h2>
-                </div>
-
-                <!-- Slider -->
-                <div class="w-full max-w-4xl mx-auto px-6 overflow-hidden relative z-10">
-                    <div id="chat-slider" class="flex transition-transform duration-[800ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]">
-
-                        <!-- Review 1 -->
-                        <div class="min-w-full flex justify-center p-4">
-                            <div class="playful-card bg-[#FFEBCD] p-10 max-w-xl w-full transform rotate-1">
-                                <div class="flex gap-1 mb-6">
-                                    <span class="text-2xl">⭐</span><span class="text-2xl">⭐</span><span class="text-2xl">⭐</span><span class="text-2xl">⭐</span><span class="text-2xl">⭐</span>
-                                </div>
-                                <p class="text-xl md:text-2xl font-bold leading-[1.4] mb-8 text-[#4A2C1B]">
-                                    "Gula aren latte-nya balance banget, manisnya pas dan kopinya tetap kerasa. Cocok buat piknik!"
+                    <!-- Bubble 1: Polaroid -->
+                    <div class="min-w-full flex justify-center p-4">
+                        <div class="polaroid max-w-lg w-full relative rotate-[2deg]">
+                            <div class="tape"></div>
+                            <div class="bg-picnic-cream p-6 rounded-lg mb-6 flex items-center justify-center min-h-[200px] border border-picnic-latte">
+                                <p class="text-2xl md:text-3xl font-hand font-bold leading-relaxed text-picnic-ink text-center">
+                                    "Gula aren latte-nya balance banget, manisnya pas dan kopinya tetap kerasa. Asik banget buat nemenin nongkrong di bazar!"
                                 </p>
-                                <div class="flex items-center gap-4 pt-4 border-t-2 border-[#4A2C1B] border-dashed">
-                                    <div class="w-12 h-12 rounded-full bg-[#D97A35] border-2 border-[#4A2C1B] flex items-center justify-center font-black text-white text-lg">F</div>
-                                    <span class="font-black uppercase text-[#4A2C1B]">Fadhilah</span>
-                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 px-2">
+                                <div class="w-12 h-12 rounded-full bg-picnic-choco flex items-center justify-center font-bold text-white text-xl">F</div>
+                                <span class="text-xl font-bold text-picnic-ink uppercase">Fadhilah</span>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Review 2 -->
-                        <div class="min-w-full flex justify-center p-4">
-                            <div class="playful-card bg-white p-10 max-w-xl w-full transform -rotate-2">
-                                <div class="flex gap-1 mb-6">
-                                    <span class="text-2xl">⭐</span><span class="text-2xl">⭐</span><span class="text-2xl">⭐</span><span class="text-2xl">⭐</span><span class="text-2xl">⭐</span>
-                                </div>
-                                <p class="text-xl md:text-2xl font-bold leading-[1.4] mb-8 text-[#4A2C1B]">
-                                    "Pandan latte di sini unik, aromanya wangi tapi nggak berlebihan. Vibesnya dapet banget."
+                    <!-- Bubble 2: Polaroid -->
+                    <div class="min-w-full flex justify-center p-4">
+                        <div class="polaroid max-w-lg w-full relative rotate-[-3deg]">
+                            <div class="tape" style="transform: translateX(-50%) rotate(3deg);"></div>
+                            <div class="bg-picnic-cream p-6 rounded-lg mb-6 flex items-center justify-center min-h-[200px] border border-picnic-latte">
+                                <p class="text-2xl md:text-3xl font-hand font-bold leading-relaxed text-picnic-ink text-center">
+                                    "Pandan latte di sini unik, aromanya wangi tapi nggak berlebihan. Vibes booth-nya dapet banget!"
                                 </p>
-                                <div class="flex items-center gap-4 pt-4 border-t-2 border-[#4A2C1B] border-dashed">
-                                    <div class="w-12 h-12 rounded-full bg-[#8FB996] border-2 border-[#4A2C1B] flex items-center justify-center font-black text-white text-lg">D</div>
-                                    <span class="font-black uppercase text-[#4A2C1B]">Dhiah</span>
-                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 px-2">
+                                <div class="w-12 h-12 rounded-full bg-picnic-caramel flex items-center justify-center font-bold text-white text-xl">D</div>
+                                <span class="text-xl font-bold text-picnic-ink uppercase">Dhiah</span>
                             </div>
                         </div>
-
-                        <!-- Review 3 -->
-                        <div class="min-w-full flex justify-center p-4">
-                            <div class="playful-card bg-[#FFEBCD] p-10 max-w-xl w-full transform rotate-2">
-                                <div class="flex gap-1 mb-6">
-                                    <span class="text-2xl">⭐</span><span class="text-2xl">⭐</span><span class="text-2xl">⭐</span><span class="text-2xl">⭐</span><span class="text-2xl">⭐</span>
-                                </div>
-                                <p class="text-xl md:text-2xl font-bold leading-[1.4] mb-8 text-[#4A2C1B]">
-                                    "Americano-nya clean dan smooth, enak diminum kapan aja. Bikin melek!"
-                                </p>
-                                <div class="flex items-center gap-4 pt-4 border-t-2 border-[#4A2C1B] border-dashed">
-                                    <div class="w-12 h-12 rounded-full bg-[#D97A35] border-2 border-[#4A2C1B] flex items-center justify-center font-black text-white text-lg">H</div>
-                                    <span class="font-black uppercase text-[#4A2C1B]">Hardiya</span>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- 5. COPYWRITING BARU (NEW SECTION) -->
-            <section class="py-24 px-6 bg-[#4A2C1B] border-y-8 border-[#D97A35] relative overflow-hidden flex justify-center items-center">
-                <!-- Pola hiasan abstrak (blobs/stars) -->
-                <div class="absolute top-10 left-10 text-white opacity-20 text-6xl transform rotate-12">✨</div>
-                <div class="absolute bottom-10 right-10 text-white opacity-20 text-6xl transform -rotate-12">☕</div>
+        <!-- 4. CTA FOOTER -->
+        <section class="relative py-32 px-6 m-4 md:m-10 bg-picnic-choco rounded-[40px] overflow-hidden flex flex-col items-center text-center shadow-xl border-4 border-white">
+            <!-- White dashed border overlay -->
+            <div class="absolute inset-2 border-[3px] border-dashed border-white/30 rounded-[30px] pointer-events-none"></div>
 
-                <h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-center text-[#FFF8F0] tracking-tighter leading-tight max-w-5xl z-10" style="text-shadow: 6px 6px 0px #8B5A2B;">
-                    "Ngantuk Menyerang,<br>
-                    <span class="text-[#FFEBCD] underline decoration-[#D97A35] decoration-8 underline-offset-8">Kopi jadi Penenang.</span>"
-                </h2>
-            </section>
+            <h3 class="text-5xl md:text-7xl font-black mb-6 z-10 text-white drop-shadow-md">
+                Sampai Jumpa di <br> <span class="text-picnic-caramel">BFEST 2026!</span>
+            </h3>
 
-            <!-- 6. CTA FOOTER -->
-            <section class="relative py-32 px-6 mt-16 mb-16 mx-4 md:mx-10 overflow-hidden flex flex-col items-center text-center bg-gingham-brown playful-card">
-                <div class="absolute inset-0 bg-white/40 pointer-events-none rounded-[20px]"></div>
+            <p class="text-xl md:text-2xl font-hand font-bold mb-12 z-10 text-picnic-ink max-w-2xl bg-white p-6 rounded-2xl rotate-1 shadow-md">
+                Atau pesan secara online melalui platform favoritmu sekarang juga!
+            </p>
 
-                <div class="bg-white border-3 border-[#4A2C1B] px-8 py-3 rounded-full mb-8 z-10 shadow-[4px_4px_0px_#4A2C1B] transform rotate-2">
-                    <p class="font-black text-[#D97A35] text-lg uppercase tracking-wider">Tunggu Apa Lagi?</p>
-                </div>
+            <button id="btn-kontak" class="bg-white text-picnic-choco border-4 border-picnic-choco px-10 py-5 rounded-full font-black text-2xl z-10 hover:bg-picnic-caramel hover:text-white hover:border-picnic-caramel transition-colors flex items-center gap-4 shadow-lg hover:scale-105">
+                <span>Hubungi Kami</span>
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+        </section>
 
-                <h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-10 z-10 text-[#4A2C1B]">
-                    Pesan Kopi Kami Sekarang<br>dan Rasakan <span class="text-[#D97A35]">Spesialnya!</span>
-                </h3>
-
-                <!-- Playful Button -->
-                <button id="btn-kontak" class="playful-button group z-10 px-10 py-5 text-xl flex items-center gap-4 hover:scale-105">
-                    <span>PESAN SEKARANG</span>
-                    <div class="w-10 h-10 rounded-full bg-white border-2 border-[#4A2C1B] text-[#4A2C1B] flex items-center justify-center group-hover:rotate-12 transition-transform shadow-[2px_2px_0px_#4A2C1B]">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </div>
-                </button>
-            </section>
-        </div>
+        <!-- Footer simple -->
+        <footer class="text-center pb-10 pt-4 font-bold text-picnic-ink/40 text-lg">
+            <p>© 2026 KPR x BFEST. A beautiful day for a coffee picnic.</p>
+        </footer>
     </div>
 
-    <!-- MODAL: PEMESANAN KPR (Hanya WA, GoFood, ShopeeFood) -->
-    <div id="modal-sosmed" class="fixed inset-0 z-[100] flex items-end md:items-center justify-center pointer-events-none overlay-enter">
-        <!-- Overlay Gelap -->
-        <div class="absolute inset-0 bg-[#4A2C1B]/60 backdrop-blur-sm transition-opacity duration-500" id="modal-sosmed-bg"></div>
+    <!-- MODAL: SOCIAL MEDIA KPR (Picnic Label Style) -->
+    <div id="modal-sosmed" class="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none overlay-enter p-4">
+        <!-- Overlay BG -->
+        <div class="absolute inset-0 bg-picnic-ink/80 backdrop-blur-sm transition-opacity duration-500" id="modal-sosmed-bg"></div>
 
-        <div class="bg-[#FFF8F0] border-4 md:border-4 border-[#4A2C1B] p-8 pb-12 md:pb-10 rounded-t-[2.5rem] md:rounded-3xl w-full max-w-sm relative z-10 modal-exit shadow-[0_-10px_0px_rgba(0,0,0,0.1)] md:shadow-[10px_10px_0px_#4A2C1B] bg-gingham">
+        <!-- Modal Content -->
+        <div class="bg-white p-8 md:p-10 rounded-3xl w-full max-w-sm relative z-10 modal-exit text-center shadow-2xl border-4 border-picnic-choco stitched-dark rotate-[1deg]" style="outline-offset: -12px;" data-lenis-prevent>
 
-            <div class="absolute inset-0 bg-white/80 rounded-t-[2.2rem] md:rounded-[1.2rem] pointer-events-none"></div>
-
-            <div class="w-16 h-2 bg-[#4A2C1B] mx-auto rounded-full mb-8 md:hidden relative z-20"></div>
-
-            <!-- Close Button Playful -->
-            <button id="close-sosmed" class="flex absolute top-[-15px] right-[-15px] md:top-[-20px] md:right-[-20px] w-12 h-12 rounded-full bg-[#D9534F] border-3 border-[#4A2C1B] shadow-[3px_3px_0px_#4A2C1B] items-center justify-center text-white hover:scale-110 transition-transform z-30 cursor-pointer">
+            <button id="close-sosmed" class="absolute -top-4 -right-4 w-12 h-12 bg-picnic-caramel border-2 border-white rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform shadow-md z-20 cursor-pointer">
                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
 
-            <div class="relative z-20">
-                <div class="bg-[#FFEBCD] border-3 border-[#4A2C1B] rounded-2xl p-4 mb-8 shadow-[4px_4px_0px_#4A2C1B] transform -rotate-2 text-center mt-4">
-                    <h3 class="text-3xl font-black tracking-tighter text-[#4A2C1B]">Pesan Via</h3>
-                </div>
+            <h3 class="text-4xl font-black mb-8 text-picnic-choco">Holla! 👋</h3>
 
-                <div class="flex flex-col gap-4">
-                    <!-- WHATSAPP -->
-                    <a href="https://wa.me/6287796983897" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 rounded-xl bg-white border-3 border-[#4A2C1B] shadow-[4px_4px_0px_#4A2C1B] hover:translate-x-1 hover:translate-y-1 hover:shadow-[0px_0px_0px_#4A2C1B] transition-all gap-5 group">
-                        <div class="w-12 h-12 rounded-full bg-[#25D366] border-2 border-[#4A2C1B] text-white flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        </div>
-                        <span class="font-black text-xl flex-1 text-[#4A2C1B]">WhatsApp</span>
-                        <svg class="w-6 h-6 text-[#4A2C1B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                    </a>
+            <div class="flex flex-col gap-4 font-bold text-xl">
+                <!-- INSTAGRAM -->
+                <a href="https://www.instagram.com/koepipodjokraffa" target="_blank" class="bg-gradient-to-tr from-[#FFDC80] via-[#F56040] to-[#C13584] px-6 py-4 rounded-xl flex items-center gap-4 text-white shadow-sm hover:scale-105 transition-transform">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    <span>Instagram</span>
+                </a>
 
-                    <!-- GOFOOD -->
-                    <a href="https://gofood.link/a/SA8mEX3" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 rounded-xl bg-white border-3 border-[#4A2C1B] shadow-[4px_4px_0px_#4A2C1B] hover:translate-x-1 hover:translate-y-1 hover:shadow-[0px_0px_0px_#4A2C1B] transition-all gap-5 group">
-                        <div class="w-12 h-12 rounded-full bg-[#EE2737] border-2 border-[#4A2C1B] text-white flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                        </div>
-                        <span class="font-black text-xl flex-1 text-[#4A2C1B]">GoFood</span>
-                        <svg class="w-6 h-6 text-[#4A2C1B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                    </a>
+                <!-- WHATSAPP -->
+                <a href="https://wa.me/6289625890539" target="_blank" class="bg-[#25D366] px-6 py-4 rounded-xl flex items-center gap-4 text-white shadow-sm hover:scale-105 transition-transform">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>WhatsApp</span>
+                </a>
 
-                    <!-- SHOPEEFOOD -->
-                    <a href="https://shopee.co.id/universal-link/now-food/shop/22711684?deep_and_deferred=1&shareChannel=copy_link" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 rounded-xl bg-white border-3 border-[#4A2C1B] shadow-[4px_4px_0px_#4A2C1B] hover:translate-x-1 hover:translate-y-1 hover:shadow-[0px_0px_0px_#4A2C1B] transition-all gap-5 group">
-                        <div class="w-12 h-12 rounded-full bg-[#EE4D2D] border-2 border-[#4A2C1B] text-white flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
-                        </div>
-                        <span class="font-black text-xl flex-1 text-[#4A2C1B]">ShopeeFood</span>
-                        <svg class="w-6 h-6 text-[#4A2C1B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                    </a>
-                </div>
+                <!-- GOFOOD -->
+                <a href="https://gofood.link/a/SA8mEX3" target="_blank" class="bg-[#EE2737] px-6 py-4 rounded-xl flex items-center gap-4 text-white shadow-sm hover:scale-105 transition-transform">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span>GoFood</span>
+                </a>
+
+                <!-- SHOPEEFOOD -->
+                <a href="https://shopee.co.id/universal-link/now-food/shop/22711684?deep_and_deferred=1&shareChannel=copy_link" target="_blank" class="bg-[#EE4D2D] px-6 py-4 rounded-xl flex items-center gap-4 text-white shadow-sm hover:scale-105 transition-transform">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+                    <span>ShopeeFood</span>
+                </a>
             </div>
         </div>
     </div>
@@ -610,50 +494,50 @@
                 nama: "Podjok Kenangan (Aren)",
                 gambar: "Aren1.jpeg",
                 harga: {
-                    "Small Bottle": "15K",
-                    "Reguler Cup": "12K",
-                    "Monster Bottle": "75K"
+                    "Small Bottle (250ml)": "15K",
+                    "Reguler Cup (380ml)": "12K",
+                    "Monster Bottle (1000ml)": "75K"
                 }
             }, {
                 nama: "Podjok Kelabu (Americano)",
                 gambar: "Americano1.jpeg",
                 harga: {
-                    "Small Bottle": "10K",
-                    "Reguler Cup": "10K",
-                    "Monster Bottle": "55K"
+                    "Small Bottle (250ml)": "10K",
+                    "Reguler Cup (380ml)": "10K",
+                    "Monster Bottle (1000ml)": "55K"
                 }
             }, {
                 nama: "Podjok Ingatan (Caramel)",
                 gambar: "Caramel1.jpeg",
                 harga: {
-                    "Small Bottle": "15K",
-                    "Reguler Cup": "15K",
-                    "Monster Bottle": "80K"
+                    "Small Bottle (250ml)": "15K",
+                    "Reguler Cup (380ml)": "15K",
+                    "Monster Bottle (1000ml)": "80K"
                 }
             }, {
                 nama: "Podjok Kasih Sayang (Pandan)",
                 gambar: "Pandan1.jpeg",
                 harga: {
-                    "Small Bottle": "18K",
-                    "Reguler Cup": "15K",
-                    "Monster Bottle": "82K"
+                    "Small Bottle (250ml)": "18K",
+                    "Reguler Cup (380ml)": "15K",
+                    "Monster Bottle (1000ml)": "82K"
                 }
             }],
             "non-coffee": [{
                 nama: "Matcha",
                 gambar: "Matcha.jpeg",
                 harga: {
-                    "Small Bottle": "20K",
-                    "Reguler Cup": "15K",
-                    "Monster Bottle": "75K"
+                    "Small Bottle (250ml)": "20K",
+                    "Reguler Cup (380ml)": "15K",
+                    "Monster Bottle (1000ml)": "75K"
                 }
             }, {
                 nama: "Chocolate",
                 gambar: "Coklat.jpeg",
                 harga: {
-                    "Small Bottle": "15K",
-                    "Reguler Cup": "12K",
-                    "Monster Bottle": "75K"
+                    "Small Bottle (250ml)": "15K",
+                    "Reguler Cup (380ml)": "12K",
+                    "Monster Bottle (1000ml)": "75K"
                 }
             }],
             "snacks": [{
@@ -683,51 +567,48 @@
             }]
         };
 
-        // RENDER MENU GRID CARD (Tema Playful Picnic)
+        // RENDER MENU GRID CARD (INFLATABLE 2 KOLOM TETAP TERJAGA)
         function renderMenu(category) {
             const container = document.getElementById('menu-container');
             container.innerHTML = '';
             container.style.opacity = '0';
-            // Grid diubah menjadi fix 2 kolom untuk tampilan Mobile First
-            container.className = 'grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 pt-4';
+
+            container.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-10';
 
             setTimeout(() => {
                 DATA_MENU[category].forEach((item, index) => {
                     const el = document.createElement('div');
-                    el.className = "playful-card bg-white p-2 md:p-3 overflow-hidden flex flex-col h-full min-h-[360px] sm:min-h-[470px] md:min-h-[535px] group relative";
+
+                    const randomRotate = (Math.random() * 4 - 2).toFixed(1);
+
+                    // Inflatable classes applied ONLY here for the Menu
+                    el.className = "inflatable inflatable-cream p-3 md:p-4 flex flex-col h-full group relative cursor-pointer";
+                    el.style.transform = `rotate(${randomRotate}deg)`;
+                    el.style.animationDelay = `${index * 50}ms`;
 
                     let priceHtml = '';
                     Object.entries(item.harga).forEach(([ukuran, harga]) => {
                         priceHtml += `
-                            <div class="flex justify-between items-center w-full mb-2 pb-2 border-b-2 border-[#4A2C1B] border-dashed last:border-0">
-                                <span class="text-[#4A2C1B] font-bold text-xs sm:text-sm">${ukuran}</span>
-                                <span class="text-[#D97A35] font-black text-sm sm:text-base">${harga}</span>
+                            <div class="flex justify-between items-center w-full mb-3 border-b-2 border-dashed border-picnic-ink/20 pb-2">
+                                <span class="font-bubble font-bold text-sm sm:text-base md:text-lg text-picnic-ink/80">${ukuran}</span>
+                                <span class="font-bubble font-black text-xl md:text-2xl text-picnic-caramel text-stroke">${harga}</span>
                             </div>
                         `;
                     });
 
-                    // Box gambar lucu dengan background placeholder cream jika gambar tidak load
                     el.innerHTML = `
-                        <div class="relative h-52 sm:h-72 md:h-80 w-full overflow-hidden rounded-[1rem] border-2 border-[#4A2C1B] bg-[#FFEBCD]">
-                            <!-- SVG Placeholder Kopi Lucu (jika image asli error) -->
-                            <div class="absolute inset-0 flex items-center justify-center opacity-30">
-                                <svg class="w-16 h-16 text-[#4A2C1B]" viewBox="0 0 24 24" fill="currentColor"><path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z"/></svg>
-                            </div>
-                            <img src="${item.gambar}" alt="${item.nama}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 img-face relative z-10" onerror="this.style.display='none'">
-                            <span class="absolute top-3 right-3 z-20 bg-[#FFF8F0] border-2 border-[#4A2C1B] shadow-[2px_2px_0px_#4A2C1B] rounded-full px-2.5 py-1 text-[9px] sm:text-xs font-black text-[#4A2C1B] rotate-3">KPR PICK</span>
+                        <div class="relative h-56 sm:h-64 md:h-72 w-full overflow-hidden rounded-[24px] border-4 border-picnic-ink bg-picnic-latte">
+                            <img src="${item.gambar}" alt="${item.nama}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             
-                            <!-- Overlay Harga bergaya kartu resep -->
-                            <div class="absolute inset-0 bg-[#FFF8F0]/95 backdrop-blur-sm flex flex-col justify-center items-center p-3 sm:p-6 opacity-0 translate-y-4 transition-all duration-300 price-face z-20 border-2 border-[#4A2C1B] rounded-[1rem]">
-                                <div class="w-full h-full bg-white border-2 border-[#4A2C1B] rounded-lg p-2 sm:p-3 flex flex-col justify-center shadow-[4px_4px_0px_#4A2C1B]">
-                                    <h4 class="text-[10px] sm:text-xs tracking-widest uppercase text-[#4A2C1B] mb-2 sm:mb-3 font-black text-center bg-[#FFEBCD] py-1 rounded-sm border-b-2 border-[#4A2C1B]">Harga</h4>
-                                    <div class="w-full flex flex-col">${priceHtml}</div>
-                                </div>
+                            <div class="absolute inset-0 bg-white/90 backdrop-blur-sm border-4 border-picnic-ink flex flex-col justify-center items-center p-4 sm:p-8 opacity-0 translate-y-full transition-all duration-300 price-face z-10 m-2 rounded-2xl">
+                                <h4 class="text-base font-bubble font-black uppercase text-picnic-ink mb-4 border-b-4 border-picnic-ink pb-1">Harga</h4>
+                                <div class="w-full flex flex-col">${priceHtml}</div>
                             </div>
                         </div>
-                        <div class="px-2 py-5 sm:py-6 flex flex-col flex-grow relative z-10 text-center">
-                            <h3 class="text-base sm:text-xl md:text-2xl font-black text-[#4A2C1B] mb-4 leading-tight flex-grow flex items-center justify-center min-h-[64px]">${item.nama}</h3>
-                            <button class="toggle-price-btn bg-[#FFEBCD] border-2 border-[#4A2C1B] shadow-[2px_2px_0px_#4A2C1B] rounded-full py-2 px-3 text-xs sm:text-sm font-bold text-[#4A2C1B] hover:bg-[#D97A35] hover:text-white transition-colors flex items-center justify-center gap-2 mt-auto active:translate-y-1 active:shadow-none">
-                                <span>Cek Harga</span>
+                        <div class="px-2 py-4 md:py-6 flex flex-col flex-grow relative z-10 text-center">
+                            <h3 class="text-2xl md:text-3xl font-bubble font-black text-picnic-ink mb-4 leading-tight flex-grow">${item.nama}</h3>
+                            <button class="toggle-price-btn font-bubble inflatable inflatable-caramel w-full py-3 md:py-4 text-base md:text-lg font-black text-white text-stroke hover:-translate-y-1 transition-transform">
+                                <span>Lihat Harga</span>
                             </button>
                         </div>
                     `;
@@ -739,15 +620,16 @@
                     btn.addEventListener('click', () => {
                         isShowingPrice = !isShowingPrice;
                         if (isShowingPrice) {
-                            priceFace.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                            priceFace.classList.remove('opacity-0', 'translate-y-full');
                             priceFace.classList.add('opacity-100', 'translate-y-0');
                             btn.querySelector('span').innerText = 'Tutup';
-                            btn.classList.add('bg-[#D97A35]', 'text-white');
+                            btn.classList.replace('inflatable-caramel', 'inflatable-choco');
+                            // btn text is already white stroke, so just changing bg is enough
                         } else {
-                            priceFace.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                            priceFace.classList.add('opacity-0', 'translate-y-full');
                             priceFace.classList.remove('opacity-100', 'translate-y-0');
-                            btn.querySelector('span').innerText = 'Cek Harga';
-                            btn.classList.remove('bg-[#D97A35]', 'text-white');
+                            btn.querySelector('span').innerText = 'Lihat Harga';
+                            btn.classList.replace('inflatable-choco', 'inflatable-caramel');
                         }
                     });
 
@@ -759,25 +641,24 @@
             }, 50);
         }
 
-        // TAB KATEGORI
+        // TAB KATEGORI Logic
         const tabs = document.querySelectorAll('.menu-tab');
         tabs.forEach(tab => {
             tab.addEventListener('click', (e) => {
                 tabs.forEach(t => {
-                    t.classList.remove('tab-active-coffee', 'tab-active-non-coffee', 'tab-active-snacks');
-                    t.classList.add('bg-white', 'text-[#4A2C1B]');
+                    t.classList.remove('inflatable-choco', 'text-white');
+                    t.classList.add('inflatable-cream', 'text-picnic-ink', 'opacity-80');
                 });
 
-                const targetKategori = e.target.dataset.target;
-                e.target.classList.add(`tab-active-${targetKategori}`);
-                e.target.classList.remove('bg-white', 'text-[#4A2C1B]');
+                e.target.classList.add('inflatable-choco', 'text-white');
+                e.target.classList.remove('inflatable-cream', 'text-picnic-ink', 'opacity-80');
 
-                renderMenu(targetKategori);
+                renderMenu(e.target.dataset.target);
             });
         });
         renderMenu('coffee');
 
-        // PRELOADER & HERO LOGIC (Reverted Back to Image Sequence)
+        // PRELOADER & HERO LOGIC (IMAGE SEQUENCE)
         const CONFIG = {
             frameCount: 192,
             path: 'sequence/',
@@ -789,6 +670,7 @@
         let useFallback = false;
         const pad = (num) => num.toString().padStart(3, '0');
         const preloader = document.getElementById('preloader');
+        const fallbackBadge = document.getElementById('fallback-badge');
         let loadedCount = 0;
         let fallbackTriggered = false;
 
@@ -804,6 +686,7 @@
                 if (!fallbackTriggered) {
                     fallbackTriggered = true;
                     useFallback = true;
+                    fallbackBadge.classList.remove('hidden');
                     let fakeP = 0;
                     const intv = setInterval(() => {
                         fakeP += 10;
@@ -840,12 +723,14 @@
         resizeCanvas();
 
         const overlays = [{
-                el: document.getElementById('overlay-1'),
-                start: 0,
-                end: 0.8
-            }
-            // Overlay 2, 3, 4 sudah dihapus
-        ];
+            el: document.getElementById('overlay-1'),
+            start: 0,
+            end: 0.3
+        }, {
+            el: document.getElementById('overlay-2'),
+            start: 0.8,
+            end: 0.95
+        }];
 
         window.addEventListener('scroll', () => {
             const rect = heroContainer.getBoundingClientRect();
@@ -853,11 +738,12 @@
             scrollProgress = Math.max(0, Math.min(1, p));
 
             if (scrollProgress > 0.80) {
-                const p2 = (scrollProgress - 0.80) / 0.20;
-                // Opacity dibuat hilang saat discroll ke bawah
-                canvasWrapper.style.opacity = Math.max(0, 1 - (p2 * 1));
+                const pBlur = (scrollProgress - 0.80) / 0.20;
+                canvasWrapper.style.opacity = Math.max(0, 1 - pBlur);
+                canvasWrapper.style.filter = `blur(${pBlur * 25}px)`;
             } else {
                 canvasWrapper.style.opacity = 1;
+                canvasWrapper.style.filter = `blur(0px)`;
             }
 
             drawCanvas();
@@ -870,41 +756,28 @@
                     else op = 1;
                 }
                 ov.el.style.opacity = op;
-                if (ov.yOff) ov.el.style.transform = `translateY(${( (ov.start+ov.end)/2 - scrollProgress) * ov.yOff}px)`;
             });
         });
 
-        // Gambar ulang kanvas dengan Image Sequence / Fallback Animasi
         function drawCanvas() {
             const fIdx = Math.floor(scrollProgress * (CONFIG.frameCount - 1));
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             if (useFallback) {
-                // Fallback Playful Drawing (jika gambar gagal dimuat)
-                const cx = canvas.width / 2;
-                const cy = canvas.height / 2;
+                const cx = canvas.width / 2,
+                    cy = canvas.height / 2;
                 ctx.save();
                 ctx.translate(cx, cy);
-                ctx.rotate(scrollProgress * Math.PI);
-
-                for (let i = 0; i < 15; i++) {
+                ctx.rotate(scrollProgress * Math.PI * 2);
+                for (let i = 0; i < 20; i++) {
                     ctx.beginPath();
-                    const radius = 50 + i * 40 + Math.sin(scrollProgress * 20 + i) * 30;
-                    ctx.arc(0, 0, radius, 0, Math.PI * 2);
-
-                    ctx.lineWidth = 4;
-                    if (i % 3 === 0) ctx.strokeStyle = `rgba(217,122,53,${0.3 - (i*0.01)})`;
-                    else if (i % 3 === 1) ctx.strokeStyle = `rgba(143,185,150,${0.3 - (i*0.01)})`;
-                    else ctx.strokeStyle = `rgba(74,44,27,${0.2 - (i*0.01)})`;
-
-                    if (i % 2 === 0) ctx.setLineDash([15, 15]);
-                    else ctx.setLineDash([]);
-
+                    ctx.arc(0, 0, 100 + i * 30 + Math.sin(scrollProgress * 10) * 80, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(217, 150, 33, ${0.1 + (1-i/20)*0.3})`;
+                    ctx.lineWidth = 10;
                     ctx.stroke();
                 }
                 ctx.restore();
             } else {
-                // Menggunakan Image Sequence
                 const img = images[fIdx];
                 if (img && img.complete && img.naturalWidth > 0) {
                     const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
@@ -913,65 +786,15 @@
             }
         }
 
-        // TEXT REVEAL (Kembali ke Filosofi Teks Baru)
-        const revealCont = document.getElementById('reveal-text-container');
-        const filosofiLines = [
-            "Di Koepi Podjok Raffa bukan",
-            "cuma soal RASA.",
-            "Melainkan tawa, Kebersamaan.",
-            "dan CERITA",
-            "Disini kita jadi nyata."
-        ];
-
-        let revealHTML = '';
-        filosofiLines.forEach((line, i) => {
-            const words = line.split(' ');
-            words.forEach((word, j) => {
-                // Tambahkan efek frame/stiker untuk kata RASA dan CERITA
-                let highlightClass = "";
-                if (word.includes("RASA")) {
-                    highlightClass = "bg-[#FFEBCD] border-[3px] border-[#4A2C1B] px-3 md:px-5 py-1 md:py-2 rounded-2xl shadow-[4px_4px_0px_#4A2C1B] text-[#D97A35] transform -rotate-2 relative -top-1 md:-top-2 mx-2";
-                } else if (word.includes("CERITA")) {
-                    highlightClass = "bg-[#FFEBCD] border-[3px] border-[#4A2C1B] px-3 md:px-5 py-1 md:py-2 rounded-2xl shadow-[4px_4px_0px_#4A2C1B] text-[#8FB996] transform rotate-2 relative -top-1 md:-top-2 mx-2";
-                } else {
-                    highlightClass = "mx-1 md:mx-1.5"; // spacing default untuk kata biasa
-                }
-
-                revealHTML += `<span class="inline-block ${highlightClass}">`;
-                word.split('').forEach(char => {
-                    revealHTML += `<span class="rev-char transition-all duration-300 opacity-20 inline-block">${char}</span>`;
-                });
-                revealHTML += `</span>`;
-            });
-            if (i < filosofiLines.length - 1) revealHTML += `<br/>`;
-        });
-        revealCont.innerHTML = revealHTML;
-
-        const revSpans = document.querySelectorAll('.rev-char');
-        window.addEventListener('scroll', () => {
-            const rect = revealCont.getBoundingClientRect();
-            let p = (window.innerHeight - rect.top) / (window.innerHeight - rect.height * 0.5);
-            p = Math.max(0, Math.min(1, p));
-            revSpans.forEach((s, i) => {
-                if (p > (i / revSpans.length) - 0.1) {
-                    s.style.opacity = 1;
-                    s.style.transform = 'translateY(0)';
-                } else {
-                    s.style.opacity = 0.2;
-                    s.style.transform = 'translateY(10px)';
-                }
-            });
-        });
-
         // CHAT TESTIMONIAL SLIDER
         const chatSlider = document.getElementById('chat-slider');
         let chatIndex = 0;
-        const chatTotal = 3;
+        const chatTotal = 2;
 
         setInterval(() => {
             chatIndex = (chatIndex + 1) % chatTotal;
             chatSlider.style.transform = `translateX(-${chatIndex * 100}%)`;
-        }, 3500);
+        }, 4000);
 
         // MODAL SOSMED
         const openModal = (id) => {
@@ -987,10 +810,12 @@
 
         const closeModal = (id) => {
             const el = document.getElementById(id);
-            const content = el.querySelector('.modal-enter-active') || el.querySelector('div:nth-child(2)');
+            const content = el.querySelector('.modal-enter-active');
+            if (!content) return;
             el.classList.remove('overlay-enter-active');
             content.classList.remove('modal-enter-active');
             content.classList.add('modal-exit');
+
             setTimeout(() => {
                 el.classList.add('pointer-events-none');
                 document.body.style.overflow = '';
@@ -999,6 +824,7 @@
         };
 
         document.getElementById('btn-kontak').onclick = () => openModal('modal-sosmed');
+        document.getElementById('btn-kontak-nav').onclick = () => openModal('modal-sosmed');
         document.getElementById('close-sosmed').onclick = () => closeModal('modal-sosmed');
         document.getElementById('modal-sosmed-bg').onclick = () => closeModal('modal-sosmed');
     </script>
